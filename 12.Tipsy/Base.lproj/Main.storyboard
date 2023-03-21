@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_2_Tipsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="_2_Tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="0%">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0lp-xd-ITa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvY-Ki-KMc">
                                                         <rect key="frame" x="123.66666666666666" y="0.0" width="105.66666666666666" height="54"/>
@@ -75,6 +78,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="10%">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mcg-br-4gA"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tP-sC-fed">
                                                         <rect key="frame" x="247.33333333333329" y="0.0" width="105.66666666666666" height="54"/>
@@ -86,6 +92,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="20%">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VO9-fJ-DYz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -114,6 +123,9 @@
                                                             <constraint firstAttribute="height" constant="29" id="8dt-NS-l8b"/>
                                                             <constraint firstAttribute="width" constant="94" id="OI6-EY-F4s"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="6ki-1o-xKZ"/>
+                                                        </connections>
                                                     </stepper>
                                                 </subviews>
                                             </stackView>
@@ -146,7 +158,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
                                 <connections>
-                                    <segue destination="3r5-LU-4mS" kind="presentation" id="9VS-aO-2mz"/>
+                                    <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2H-Ea-yy2"/>
+                                    <segue destination="3r5-LU-4mS" kind="presentation" identifier="goToResults" id="9VS-aO-2mz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,15 +177,22 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0mb-QQ-InR" secondAttribute="trailing" id="ywr-hD-zNG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billTextField" destination="p8D-eE-0JV" id="Bf4-oN-EzS"/>
+                        <outlet property="splitNumberLabel" destination="Vgd-rr-yS6" id="v5R-VJ-6mJ"/>
+                        <outlet property="tenPctButton" destination="yvY-Ki-KMc" id="Nwu-pD-R0G"/>
+                        <outlet property="twentyPctButton" destination="5tP-sC-fed" id="TLe-dO-fIQ"/>
+                        <outlet property="zeroPctButton" destination="UPH-Ut-BwI" id="CVD-Uw-tGO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="VMI-dl-KAM">
             <objects>
-                <viewController id="3r5-LU-4mS" sceneMemberID="viewController">
+                <viewController id="3r5-LU-4mS" customClass="ResultsViewController" customModule="_2_Tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eSr-0y-hcb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
