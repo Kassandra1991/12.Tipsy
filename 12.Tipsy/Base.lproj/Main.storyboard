@@ -243,6 +243,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Recalculate"/>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="3r5-LU-4mS" eventType="touchUpInside" id="kJ4-mI-WLQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mdF-xg-dvP"/>
@@ -258,6 +261,10 @@
                             <constraint firstItem="mdF-xg-dvP" firstAttribute="bottom" secondItem="9Zw-vW-00Z" secondAttribute="bottom" id="x2y-rm-O2K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="settingsLabel" destination="6sT-yw-cG0" id="cN2-Nb-RGn"/>
+                        <outlet property="totalLabel" destination="BBH-Uj-Z6Y" id="SCm-R4-UM1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFZ-f6-7Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

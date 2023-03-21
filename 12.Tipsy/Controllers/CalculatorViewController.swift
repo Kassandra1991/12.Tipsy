@@ -33,7 +33,10 @@ class CalculatorViewController: UIViewController {
         twentyPctButton.isSelected = false
         sender.isSelected = true
         
-        let buttonTitle = sender.currentTitle!
+        guard let buttonTitle = sender.currentTitle else {
+            print("Something wrong")
+            return
+        }
         let buttonTitleMinusPercentSign =  String(buttonTitle.dropLast())
         let buttonTitleAsANumber = Double(buttonTitleMinusPercentSign)!
         tip = buttonTitleAsANumber / 100
